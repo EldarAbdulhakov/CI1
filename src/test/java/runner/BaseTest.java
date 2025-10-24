@@ -1,7 +1,6 @@
 package runner;
 
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -35,6 +34,11 @@ public abstract class BaseTest {
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
             String selenoidUrl = System.getenv("SELENOID_URL");
+
+            if (selenoidUrl == null || selenoidUrl.isEmpty()) {
+                throw new IllegalStateException("SELENOID_URL is not set!");
+            }
+
             driver = new RemoteWebDriver(new URL(selenoidUrl), options);
             driver.manage().window().setSize(new Dimension(1920, 1080));
         } catch (Exception e) {

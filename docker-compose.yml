@@ -20,8 +20,8 @@ services:
     volumes:
       - .:/app
       - ./maven_cache:/root/.m2
-    depends_on:
-      - selenoid
     environment:
       - SELENOID_URL=http://selenoid:4444/wd/hub
+    depends_on:
+      - selenoid
     command: ["mvn", "clean", "test"]
