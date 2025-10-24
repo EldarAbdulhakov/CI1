@@ -9,8 +9,8 @@ services:
       - "4444:4444"
     command: >
       -limit 2
-      -timeout 5m
-      -service-startup-timeout 2m
+      -timeout 50m
+      -service-startup-timeout 20m
 
   tests:
     build:
