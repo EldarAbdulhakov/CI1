@@ -15,7 +15,7 @@ services:
       -service-startup-timeout 20m
       -conf /etc/selenoid/browsers.json
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://127.0.0.1:4444/status"]
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:4444/status || exit 1"]
       interval: 5s
       retries: 20
       start_period: 15s
