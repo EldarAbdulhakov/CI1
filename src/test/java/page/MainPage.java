@@ -56,7 +56,7 @@ public class MainPage {
     public MainPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        getDriver().get("https://practice-automation.com/form-fields/");
+        driver.get("https://practice-automation.com/form-fields/");
     }
 
     public WebDriver getDriver() {
