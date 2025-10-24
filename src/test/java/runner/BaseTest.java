@@ -2,12 +2,13 @@ package runner;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.net.URL;
 import java.time.Duration;
 
 public abstract class BaseTest {
@@ -31,7 +32,10 @@ public abstract class BaseTest {
         try {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless");
-            driver = new ChromeDriver(options);
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            String selenoidUrl = System.getenv("SELENOID_URL");
+            driver = new RemoteWebDriver(new URL(selenoidUrl), options);
             driver.manage().window().setSize(new Dimension(1920, 1080));
         } catch (Exception e) {
             e.printStackTrace();
@@ -40,7 +44,10 @@ public abstract class BaseTest {
 
     @AfterMethod
     protected void closeDriver() {
-        driver.quit();
-        wait10 = null;
+        if (driver != null) {
+            driver.quit();
+            wait10 = null;
+        }
+
     }
 }
