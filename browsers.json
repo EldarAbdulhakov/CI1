@@ -1,9 +1,9 @@
 {
   "chrome": {
-    "default": "129.0",
+    "default": "121.0",
     "versions": {
-      "129.0": {
-        "image": "selenoid/vnc:chrome_129.0",
+      "121.0": {
+        "image": "selenoid/vnc:chrome_121.0",
         "port": "4444",
         "tmpfs": {"/tmp": "size=512m"}
       }
