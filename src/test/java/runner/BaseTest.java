@@ -13,10 +13,10 @@ import java.time.Duration;
 
 public abstract class BaseTest {
 
-    private WebDriver driver;
+    private RemoteWebDriver driver;
     private WebDriverWait wait10;
 
-    protected WebDriver getDriver() {
+    protected RemoteWebDriver getDriver() {
         return driver;
     }
 

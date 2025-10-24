@@ -3,6 +3,7 @@ package page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -50,16 +51,16 @@ public class MainPage {
     @FindBy(className = "red_txt")
     private WebElement requiredMessage;
 
-    private final WebDriver driver;
+    private final RemoteWebDriver driver;
     private WebDriverWait wait10;
 
-    public MainPage(WebDriver driver) {
+    public MainPage(RemoteWebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         driver.get("https://practice-automation.com/form-fields/");
     }
 
-    public WebDriver getDriver() {
+    public RemoteWebDriver getDriver() {
         return driver;
     }
 
