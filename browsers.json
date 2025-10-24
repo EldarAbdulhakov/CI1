@@ -5,7 +5,7 @@
       "121.0": {
         "image": "selenoid/chrome:121.0",
         "port": "4444",
-        "tmpfs": {"/tmp": "size=1024m"}
+        "tmpfs": {"/tmp": "size=2g"}
       }
     }
   }
