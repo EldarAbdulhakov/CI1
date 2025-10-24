@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  selenoid:
+    image: aerokube/selenoid:latest
+    container_name: selenoid
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./browsers.json:/etc/selenoid/browsers.json:ro
+    ports:
+      - "4444:4444"
+    command: >
+      -limit 2
+      -timeout 5m
+      -service-startup-timeout 2m
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.tests
+    container_name: tests
+    volumes:
+      - .:/app
+      - ./maven_cache:/root/.m2
+      - ./allure-results:/app/target/allure-results
+    depends_on:
+      - selenoid
+    environment:
+      - SELENOID_URL=http://selenoid:4444/wd/hub
+    command: ["mvn", "clean", "test"]
