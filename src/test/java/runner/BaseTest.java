@@ -30,9 +30,12 @@ public abstract class BaseTest {
     public void setUp() {
         try {
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
+            options.addArguments("--headless=new");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920,1080");
+
             String selenoidUrl = System.getenv("SELENOID_URL");
 
             if (selenoidUrl == null || selenoidUrl.isEmpty()) {
@@ -40,7 +43,6 @@ public abstract class BaseTest {
             }
 
             driver = new RemoteWebDriver(new URL(selenoidUrl), options);
-            driver.manage().window().setSize(new Dimension(1920, 1080));
         } catch (Exception e) {
             e.printStackTrace();
         }
