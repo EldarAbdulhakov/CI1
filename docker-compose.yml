@@ -11,6 +11,12 @@ services:
       -limit 2
       -timeout 50m
       -service-startup-timeout 20m
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:4444/status" ]
+      interval: 5s
+      retries: 20
+      start_period: 5s
+      timeout: 2s
 
   tests:
     build:
@@ -23,5 +29,6 @@ services:
     environment:
       - SELENOID_URL=http://selenoid:4444/wd/hub
     depends_on:
-      - selenoid
+      selenoid:
+        condition: service_healthy
     command: ["mvn", "clean", "test"]
