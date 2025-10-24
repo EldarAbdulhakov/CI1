@@ -3,8 +3,5 @@ WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline -B
 COPY src ./src
-RUN curl -sL https://github.com/allure-framework/allure2/releases/download/2.24.0/allure-2.24.0.zip -o /tmp/allure.zip \
-    && unzip /tmp/allure.zip -d /opt/ \
-    && ln -s /opt/allure-2.24.0/bin/allure /usr/bin/allure
 ENV ALLURE_RESULTS_DIR=/app/target/allure-results
 CMD ["mvn", "clean", "test"]
