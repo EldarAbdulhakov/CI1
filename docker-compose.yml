@@ -20,7 +20,6 @@ services:
     volumes:
       - .:/app
       - ./maven_cache:/root/.m2
-      - ./allure-results:/app/target/allure-results
     depends_on:
       - selenoid
     environment:
