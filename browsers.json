@@ -1,11 +1,10 @@
 {
   "chrome": {
-    "default": "121.0",
+    "default": "129.0",
     "versions": {
-      "121.0": {
-        "image": "aerokube/chrome:121.0",
+      "129.0": {
+        "image": "selenoid/vnc:chrome_129.0",
         "port": "4444",
-        "path": "/",
         "tmpfs": {"/tmp": "size=512m"}
       }
     }
