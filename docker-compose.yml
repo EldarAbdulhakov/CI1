@@ -10,10 +10,9 @@ services:
     command: >
       -container-network ${COMPOSE_PROJECT_NAME}_default
       -limit 2
-      -timeout 50m
-      -service-startup-timeout 20m
+      -timeout 10m
+      -service-startup-timeout 2m
       -conf /etc/selenoid/browsers.json
-      -container-network selenoid_net
     shm_size: 2g
     healthcheck:
       test: ["CMD-SHELL", "wget -q --spider http://localhost:4444/status || exit 1"]
