@@ -42,7 +42,6 @@ public abstract class BaseTest {
             }
 
             driver = new RemoteWebDriver(new URL(selenoidUrl), options);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
