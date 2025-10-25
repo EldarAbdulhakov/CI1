@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   selenoid:
     image: aerokube/selenoid:latest-release
@@ -10,6 +8,7 @@ services:
     ports:
       - "4444:4444"
     command: >
+      -container-network ${COMPOSE_PROJECT_NAME}_default
       -limit 2
       -timeout 50m
       -service-startup-timeout 20m
@@ -17,13 +16,11 @@ services:
       -container-network selenoid_net
     shm_size: 2g
     healthcheck:
-      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:4444/status || exit 1"]
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:4444/status || exit 1"]
       interval: 5s
       retries: 20
       start_period: 15s
       timeout: 2s
-    networks:
-      - selenoid_net
 
   tests:
     build:
@@ -39,8 +36,3 @@ services:
       selenoid:
         condition: service_healthy
     command: ["mvn", "clean", "test"]
-    networks:
-      - selenoid_net
-networks:
-  selenoid_net:
-    external: true
