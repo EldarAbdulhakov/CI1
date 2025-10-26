@@ -1,6 +1,7 @@
 package runner;
 
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -28,12 +29,9 @@ public abstract class BaseTest {
     @BeforeMethod
     public void setUp() {
         try {
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless=new");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--disable-gpu");
-            options.addArguments("--window-size=1920,1080");
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setBrowserName("chrome");
+            capabilities.setVersion("121.0");
 
             String selenoidUrl = System.getenv("SELENOID_URL");
 
@@ -41,7 +39,7 @@ public abstract class BaseTest {
                 throw new IllegalStateException("SELENOID_URL is not set!");
             }
 
-            driver = new RemoteWebDriver(new URL(selenoidUrl), options);
+            driver = new RemoteWebDriver(new URL(selenoidUrl), capabilities);
 
         } catch (Exception e) {
             e.printStackTrace();
