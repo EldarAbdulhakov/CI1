@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","795","testFormFields","Surefire suite","Mon Oct 27 19:53:34 UTC 2025","broken","Mon Oct 27 19:53:35 UTC 2025","FormFieldsTest","Surefire test","FormFieldsTest","testFormFields"
+"","559","testRequiredMessage","Surefire suite","Mon Oct 27 19:53:37 UTC 2025","passed","Mon Oct 27 19:53:38 UTC 2025","FormFieldsTest","Surefire test","FormFieldsTest","testRequiredMessage"
+"","398","testPlaceHolderMessage","Surefire suite","Mon Oct 27 19:53:36 UTC 2025","passed","Mon Oct 27 19:53:36 UTC 2025","FormFieldsTest","Surefire test","FormFieldsTest","testPlaceHolderMessage"
