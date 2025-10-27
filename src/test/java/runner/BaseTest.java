@@ -1,6 +1,5 @@
 package runner;
 
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -40,7 +39,7 @@ public abstract class BaseTest {
             }
 
             driver = new RemoteWebDriver(new URL(selenoidUrl), capabilities);
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         } catch (Exception e) {
             e.printStackTrace();
