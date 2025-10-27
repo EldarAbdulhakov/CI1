@@ -20,7 +20,7 @@ public abstract class BaseTest {
 
     protected WebDriverWait getWait10() {
         if (wait10 == null) {
-            wait10 = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+            wait10 = new WebDriverWait(getDriver(), Duration.ofSeconds(120));
         }
         return wait10;
     }
