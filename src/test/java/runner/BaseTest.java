@@ -40,6 +40,7 @@ public abstract class BaseTest {
             }
 
             driver = new RemoteWebDriver(new URL(selenoidUrl), capabilities);
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
         } catch (Exception e) {
             e.printStackTrace();
