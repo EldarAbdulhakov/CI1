@@ -27,7 +27,7 @@ public class MainPage {
     @FindBy(xpath = "//input[@value='Coffee']")
     private WebElement coffee;
 
-    @FindBy(css = "#color3")
+    @FindBy(id = "#color3")
     private WebElement yellow;
 
     @FindBy(id = "automation")
@@ -92,7 +92,7 @@ public class MainPage {
     }
 
     public MainPage chooseYellow() {
-        getWait10().until(ExpectedConditions.elementToBeClickable(By.cssSelector("#color3"))).click();
+        yellow.click();
         return this;
     }
 
