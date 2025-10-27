@@ -2,27 +2,15 @@ name: CI5. CI + Git
 
 on:
   push:
-    branches: ["ea/ci-yml"]
+    branches: ["abdulhakov-probationCI5"]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      MAVEN_CACHE_DIR: /home/runner/.m2/repository
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
-      - name: Cache Maven packages
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.MAVEN_CACHE_DIR }}
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-maven-
-
-      - name: Prepare Maven cache
-        run: mkdir -p ${{ env.MAVEN_CACHE_DIR }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
