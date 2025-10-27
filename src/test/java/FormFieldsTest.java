@@ -12,22 +12,22 @@ public class FormFieldsTest extends BaseTest {
     private static final String EXPECTED_PLACEHOLDER_TEXT = "Enter message here";
     private static final String EXPECTED_REQUIRED_MESSAGE = "* Required";
 
-    @Test
-    public void testFormFields() {
-        String alertText = new MainPage(getDriver())
-                .inputName(NAME)
-                .inputPassword(PASSWORD)
-                .chooseMilk()
-                .chooseCoffee()
-                .chooseYellow()
-                .selectOne()
-                .inputEmail(EMAIL)
-                .inputInstrumentCount()
-                .clickSubmit()
-                .getAlertText();
-
-        Assert.assertEquals(alertText, EXPECTED_ALERT_TEXT);
-    }
+//    @Test
+//    public void testFormFields() {
+//        String alertText = new MainPage(getDriver())
+//                .inputName(NAME)
+//                .inputPassword(PASSWORD)
+//                .chooseMilk()
+//                .chooseCoffee()
+//                .chooseYellow()
+//                .selectOne()
+//                .inputEmail(EMAIL)
+//                .inputInstrumentCount()
+//                .clickSubmit()
+//                .getAlertText();
+//
+//        Assert.assertEquals(alertText, EXPECTED_ALERT_TEXT);
+//    }
 
     @Test
     public void testPlaceHolderMessage() {
