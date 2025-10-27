@@ -19,6 +19,7 @@ public class FormFieldsTest extends BaseTest {
                 .inputPassword(PASSWORD)
                 .chooseMilk()
                 .chooseCoffee()
+                .chooseYellow()
                 .selectOne()
                 .inputEmail(EMAIL)
                 .inputInstrumentCount()
