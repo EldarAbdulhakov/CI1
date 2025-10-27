@@ -91,7 +91,7 @@ public class MainPage {
     }
 
     public MainPage chooseYellow() {
-        yellow.click();
+        getWait10().until(ExpectedConditions.elementToBeClickable(yellow)).click();
         return this;
     }
 
