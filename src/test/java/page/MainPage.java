@@ -27,7 +27,7 @@ public class MainPage {
     @FindBy(xpath = "//input[@value='Coffee']")
     private WebElement coffee;
 
-    @FindBy(xpath = "//input[@value='Yellow']")
+    @FindBy(xpath = "//label[@for='color3']")
     private WebElement yellow;
 
     @FindBy(id = "automation")
