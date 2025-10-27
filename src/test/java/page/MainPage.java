@@ -93,8 +93,8 @@ public class MainPage {
     }
 
     public MainPage chooseYellow() {
-        WebElement element = driver.findElement(By.xpath("//label[@for='color3']"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+//        WebElement element = driver.findElement(By.xpath("//label[@for='color3']"));
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         getWait10().until(ExpectedConditions.elementToBeClickable(By.xpath("//label[@for='color3']")));
         return this;
     }
