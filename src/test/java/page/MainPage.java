@@ -1,5 +1,6 @@
 package page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -91,7 +92,7 @@ public class MainPage {
     }
 
     public MainPage chooseYellow() {
-        getWait10().until(ExpectedConditions.elementToBeClickable(yellow)).click();
+        getWait10().until(ExpectedConditions.elementToBeClickable(By.cssSelector("#color3"))).click();
         return this;
     }
 
