@@ -46,3 +46,4 @@ public class FormFieldsTest extends BaseTest {
         Assert.assertEquals(requiredMessage, EXPECTED_REQUIRED_MESSAGE);
     }
 }
+
